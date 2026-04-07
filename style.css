@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+ 
+
+html {
+    scroll-behavior: smooth;
+}
+ 
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+     box-sizing: border-box;
+}
+ 
+
+body {
+    background: #1a0327;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+ 
+.back-to-top {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    width: 52px;
+    height: 52px;
+    background: #550381;
+    color: #FEC53A;
+    border: 2px solid #FEC53A;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 48px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(85, 3, 129, 0.7);
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    animation: revealBtn linear both;
+    animation-timeline: scroll();
+    animation-range: 300px 400px;
+}
+@keyframes revealBtn {
+    to { opacity: 1; pointer-events: auto; }
+}
+.back-to-top:hover {
+    background: #FEC53A;
+    color: #550381;
+    transform: translateY(-4px);
+}
+ 
+/* ============================================================
+   5. HERO SECTION
+   ============================================================ */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://www.barrie.ca/sites/default/files/styles/16_9/public/2023-07/Game-On.jpg?itok=3pRQRUgu')
+        center / cover no-repeat fixed;
+}
+ 
+header {
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+     align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(6px);
+}
+ 
+.logo {
+    width: 280px;
+    height: 70px;
+    background: #550381;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 10px;
+    clip-path: polygon(0 0, 100% 0, 72% 100%, 0% 100%);
+    padding: 10px 20px;
+    cursor: default;
+    transition: background 0.3s ease;
+}
+.logo:hover { background: chocolate; }
+.logo .fas { font-size: 2.2rem; }
+.logo p {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    width: 130px;
+}
+ 
+/* Navbar */
+ul.navbar {
+    display: flex;
+    list-style: none;
+    gap: 6px;
+}
+ul.navbar li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+ul.navbar li a:hover,
+ul.navbar li a.active {
+    color: #FEC53A;
+    background: rgba(254, 197, 58, 0.12);
+}
+ 
+/* Play Now button */
+#btn {
+    width: 220px;
+    height: 70px;
+    background: #FEC53A;
+    color: #000;
+    border: none;
+    outline: none;
+    clip-path: polygon(28% 0, 100% 0, 100% 100%, 0% 100%);
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 28px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+#btn:hover { background: cadetblue; color: #fff; }
+#btn .fas { margin-right: 8px; }
+/* ============================================================
+   7. HERO CONTENT
+   ============================================================ */
+.content-wrapper {
+    width: 80%;
+    min-height: calc(100vh - 70px);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+ 
+.content-desc span h1 {
+    font-size: 3rem;
+    color: aqua;
+    margin-bottom: 16px;
+}
+.content-desc p {
+    max-width: 520px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+.content-desc p:hover { color: #FEC53A; }
+ 
+#btn2 {
+    margin-top: 20px;
+    width: 260px;
+    height: 56px;
+    padding-left: 22px;
+    border: none;
+    outline: none;
+    background: #FEC53A;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-align: left;
+}
+#btn2:hover { background: aquamarine; }
+ 
+/* Anime image area */
+.anime {
+    flex-shrink: 0;
+    width: 420px;
+    height: 420px;
+    position: relative;
+}
+.anime::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("images/pi.anime.png");
+    filter: brightness(85%);
+    width: 500px;
+    height: 500px;
+}
+ 
+/* ============================================================
+   8. LOGO DIVIDER
+   ============================================================ */
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      padding: 40px 0;
+    gap: 16px;
+}
+.logo-section .fas { font-size: 5rem; color: #FEC53A; }
+.logo-section h1  { font-size: 2rem; color: #FEC53A; }
+ 
+/* ============================================================
+   9. SECTION 1 — ACTION GAMES & GAME STRATEGY
+   ============================================================ */
+.section-1 {
+    width: 100%;
+    padding: 50px 0 60px;
+    background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72));
+    background-image: url("images/BG3.jpeg");
+}
+ 
+.section-1-wrapper {
+    width: 88%;
+    margin: 0 auto 40px;
+}
+.section-1 h1,
+.game-strategy h1 {
+    color: #FEC53A;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+ 
+/* Game image cards */
+.section-1-img {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.section-1-img .img {
+    width: 150px;
+    height: 170px;
+    background:white;
+    background-size: cover;
+    background-position: right;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+.section-1-img .img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(242, 250, 5, 0.7);
+}
+ 
+.section-1-img .img-1 { 
+    background-image: url("images/Ninja\ 4.jfif"); 
+}
+.section-1-img .img-2 { background-image: url("images/ninja kaiden.jfif"); }
+.section-1-img .img-3 { background-image: url("images/Lost soul aside.jfif"); }
+.section-1-img .img-4 { background-image: url("images/Naruto.jfif"); }
+.section-1-img .img-5 { background-image: url("images/gta.jfif"); }
+.section-1-img .img-6 { background-image: url("images/Take action.jfif"); }
+.section-1-img .img-7 { background-image: url("images/Left survice.jfif"); }
+.section-1-img .img-8 { background-image: url("images/Game side.jfif"); }
+ 
+/* Price badge */
+.price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0cf800;
+    background: rgba(0,0,0,0.55);
+    padding: 3px 10px;
+      border-radius: 20px;
+    text-align: center;
+}
+ 
+/* Strategy cards */
+.game-strategy {
+    width: 88%;
+    margin: 0 auto;
+}
+.game-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 14px;
+}
+.gw {
+    width: 140px;
+    height: 140px;
+    background: #444 center / cover no-repeat;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+.gw:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.7);
+}
+ 
+.gw-1  { background-image: url('images/mlbb.jfif'); }
+.gw-2  { background-image: url('images/hok.jfif'); }
+.gw-3  { background-image: url('images/hay day.jfif'); }
+.gw-4  { background-image: url('images/clash of clan.jfif'); }
+.gw-5  { background-image: url('images/Among us.jfif'); }
+.gw-6  { background-image: url('images/boom beach.jfif'); }
+.gw-7  { background-image: url('images/lord mobile.jfif'); }
+.gw-8  { background-image: url('images/Clash royal.jfif'); }
+.gw-9  { background-image: url('images/lol.jfif'); }
+.gw-10 { background-image: url('images/Magic chess go go.jfif'); }
+ 
+/* ============================================================
+   10. SECTION 2 — CONTACT
+   ============================================================ */
+.section-2 {
+    width: 100%;
+    padding: 70px 20px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.75)),
+        url('images/BG 1.jfif') center / cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-2 > h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+ 
+/* Contact card */
+.contact-card {
+    background: #fff;
+    color: #333;
+    border-radius: 12px;
+    display: flex;
+    width: min(900px, 95%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    overflow: hidden;
+}
+ /* Left info panel */
+.contact-left {
+    width: 35%;
+    background: #550381;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    padding: 44px 30px;
+}
+.contact-left .details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.contact-left .details i {
+    font-size: 1.5rem;
+    color: #FEC53A;
+    margin-bottom: 6px;
+}
+.contact-left .topic {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FEC53A;
+}
+.contact-left .text-one,
+.contact-left .text-two {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.82);
+}
+ 
+/* Right form */
+.contact-right {
+    width: 65%;
+    padding: 44px 40px;
+}
+.contact-right .topic-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3e2093;
+    margin-bottom: 8px;
+}
+.contact-right > p {
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 18px;
+}
+.input-box {
+    margin: 12px 0;
+}
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: #333;
+    transition: background 0.2s ease;
+}
+.input-box input:focus,
+.input-box textarea:focus { background: #e2e3f5; }
+.message-box textarea {
+    height: 110px;
+    resize: vertical;
+    padding-top: 10px;
+    .send-btn { margin-top: 16px; }}
+.send-btn button {
+    background: #3e2093;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.send-btn button:hover {
+    background: #FEC53A;
+    color: #000;
+    transform: translateY(-2px);
+}
+ 
+/* ============================================================
+   11. SECTION 3 — ABOUT
+   ============================================================ */
+.section-3 {
+    width: 100%;
+    padding: 70px 20px;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url('images/BG3.jpeg') center / cover no-repeat fixed;
+}
+.section-3 > h1 {
+    font-size: 3rem;
+    color: #4f9fff;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 35px;
+    transition: color 0.3s ease;
+}
+.section-3 > h1:hover { color: #FEC53A; }
+ 
+.section-3-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.feedback {
+    width: 240px;
+    height: 270px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+.fb-1 {
+     background-image: url("images/pic_boy-removebg.png");
+     background-position: center;
+background-size: cover;
+ }
+.fb-2 { background-image: url("images/pic\ girl-removebg.png");
+background-position: center;
+background-size: cover;
+}
+ 
+.feedback-desc {
+    width: 380px;
+    background: rgba(0,0,0,0.75);
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    transition: background 0.3s ease;
+}
+.feedback-desc:hover { background: rgba(85, 3, 129, 0.88); }
+.feedback-desc .far {
+    font-size: 2.2rem;
+     color: #FEC53A;
+    margin-top: 10px;
+}
+.feedback-desc h4 {
+    color: #FEC53A;
+    margin-top: 6px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+ 
+/* ============================================================
+   12. FOOTER
+   ============================================================ */
+footer {
+    width: 100%;
+    background: #282828;
+    padding: 55px 20px;
+}
+.footer-body {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+.footer-logo {
+    background: #FEC53A;
+    color: #000;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+}
+.footer-logo .fas { font-size: 2.2rem; }
+.footer-logo h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; width: 120px; }
+ 
+ul { list-style: none; }
+.list-heading {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 0.88rem;
+    line-height: 2.5;
+    display: block;
+    transition: color 0.3s ease;
+}
+ul li a:hover { color: #FEC53A; }
+ul li a .fab { font-size: 1rem; color: #FEC53A; margin-right: 10px; }
+ 
+.footer-bottom {
+    width: 100%;
+    background: #1B1919;
+    color: #999;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85rem;
+}
+.footer-bottom span { color: #FEC53A; font-weight: 600; }
+ 
+/* ============================================================
+   13. RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        width: 92%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 50px 0;
+    }
+    .anime { display: none; }
+    .content-desc p { max-width: 100%; }
+    .section-1-img { justify-content: center; }
+    .game-wrapper   { justify-content: center; }
+}
+ 
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+    ul.navbar {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .logo { clip-path: none; width: auto; height: auto; padding: 10px 16px; }
+    #btn { clip-path: none; width: auto; height: 42px; padding: 0 20px; font-size: 0.9rem; }
+ 
+    .contact-card { flex-direction: column; }
+    .contact-left, .contact-right { width: 100%; }
+ 
+    .section-3-wrapper { flex-direction: column; align-items: center; }
+    .feedback-desc { width: 90%; }
+    .footer-body { flex-direction: column; align-items: center; text-align: center; }
+}
